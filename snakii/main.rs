@@ -1,18 +1,14 @@
 
 
 fn main() {
-    let age = 12;
-    finding_age(age);
+    let message = "Hello world";
+        let message2 = print_message(message);
+        println!("{}", message2);
 }
 
-fn finding_age(age: i32) {
-    for n in 1..=15 {
-        if n > age {
-            println!("you are senior to me: {}", n);
-        }else if n == age {
-            println!("your age is similar to me: {}", n);
-        }else {
-            println!("You are junior to  me: {}", n);
-        }
-    }
+fn print_message(text: &str) -> &str {
+    println!("{}", text);
+
+    let new_message = "heyy please";
+     new_message
 }
