@@ -1,5 +1,6 @@
 fn main(){
-    let message = "starting a rust lecture";
+    let mut message = "starting a rust lecture";
+    println!("original message: {}", message);
     message = "changing original message";
     println!("{}",message);
 }
