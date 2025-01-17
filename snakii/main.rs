@@ -10,6 +10,10 @@ fn main() {
     println!("{}",b);
     println!("{}",c);
     
+
+    let x = [1,2,3,4,5];
+
+    println!("{}",x[3]);
 }
 
 
