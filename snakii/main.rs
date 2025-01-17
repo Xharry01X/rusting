@@ -14,6 +14,11 @@ fn main() {
     let x = [1,2,3,4,5];
 
     println!("{}",x[3]);
+
+
+    let y = [2; 6];
+
+    println!("{}",y[5]);
 }
 
 
