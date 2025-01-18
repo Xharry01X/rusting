@@ -2,23 +2,19 @@
 
 fn main() {
 
-    let tup = (20,"harry",4.343);
+   let a = 5;
+   let b = 6;
 
-    let (a,b,c) = tup;
+   let sum = add(a,b);
 
-    println!("{}",a);
-    println!("{}",b);
-    println!("{}",c);
-    
+   println!("Sum of two number is {}", sum);
+}
 
-    let x = [1,2,3,4,5];
+fn add(x:i32,y:i32) -> i32 {
+  
+   let result = x + y;
 
-    println!("{}",x[3]);
-
-
-    let y = [2; 6];
-
-    println!("{}",y[5]);
+  return result;
 }
 
 
