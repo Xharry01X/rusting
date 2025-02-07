@@ -8,16 +8,9 @@
 
 
 fn main(){
-  let mut message = String::from("Harry");
+  let message_1 = String::from("Hello"); // you can read write
 
-  let mut message_2 = &mut message;
-
-  let message_3 =  &mut message_2;
-
-  message_3.push_str(" World");
-
-  println!("{}", message_3);
-
+  let message_2 = "hello"; // this is only read, rEAD-ONLY 
    
 }
 
