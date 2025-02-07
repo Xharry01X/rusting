@@ -10,7 +10,7 @@
 fn main(){
  let message = String::from("Hello");
 
- let slice = &message[2..4];
+ let slice = &message[..=4];
 
  println!("{}",slice);
    
