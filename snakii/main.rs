@@ -8,9 +8,15 @@
 
 
 fn main(){
-   let mut name = "Harry";
+  let mut message = String::from("Harry");
 
-   let 
+  let mut message_2 = &mut message;
+
+  let message_3 =  &mut message_2;
+
+  message_3.push_str(" World");
+
+  println!("{}", message_3);
 
    
 }
