@@ -8,9 +8,11 @@
 
 
 fn main(){
-  let message_1 = String::from("Hello"); // you can read write
+ let message = String::from("Hello");
 
-  let message_2 = "hello"; // this is only read, rEAD-ONLY 
+ let slice = &message[2..4];
+
+ println!("{}",slice);
    
 }
 
