@@ -8,13 +8,10 @@
 
 
 fn main(){
-   let mut n = 11;
+   let mut name = "Harry";
 
-   decrease(&mut n);
+   let 
 
-   println!("Your decreased value {}", n);
+   
 }
 
-fn decrease(n: &mut i32){
-   *n -= 1;
-}
