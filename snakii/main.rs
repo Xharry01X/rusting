@@ -8,13 +8,13 @@
 
 
 fn main(){
-   let name = String::from("Hello");
+   let mut n = 11;
 
-   greet(&name);
+   decrease(&mut n);
 
-   println!("Name is still: {}",name);
+   println!("Your decreased value {}", n);
 }
 
-fn greet(name: &String){
-println!("Hello: {}!",name);
+fn decrease(n: &mut i32){
+   *n -= 1;
 }
