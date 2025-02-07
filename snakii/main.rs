@@ -8,11 +8,13 @@
 
 
 fn main(){
- let message = String::from("Hello");
+ let mut message = String::from("Hello");
 
- let slice = &message[..=4];
+ let message_2 = message.clone();
 
- println!("{}",slice);
+ println!("{}",message_2);
+
+ message.clear();
    
 }
 
