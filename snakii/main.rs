@@ -8,11 +8,13 @@
 
 
 fn main(){
-   let mut book = String::from("Rust book");
+   let name = String::from("Hello");
 
-   let borrowed_book = &mut book;
+   greet(&name);
 
-   borrowed_book.push_str("is alowed");
+   println!("Name is still: {}",name);
+}
 
-   println!("{}",borrowed_book);
+fn greet(name: &String){
+println!("Hello: {}!",name);
 }
