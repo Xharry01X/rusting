@@ -8,13 +8,12 @@
 
 
 fn main(){
- let mut message = String::from("Hello");
+ let x = 5; // stored on the stack
 
- let message_2 = message.clone();
+ let y = Box::new(5); // stored on the heap
 
- println!("{}",message_2);
-
- message.clear();
+ println!("x:{}",x);
+ println!("y: {}", *y);
    
 }
 
