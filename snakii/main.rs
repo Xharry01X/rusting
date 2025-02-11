@@ -6,14 +6,23 @@
 //    println!("Broorowd book: {}", borrowed_book);
 // }
 
+struct Person {
+    name: String,
+    last_name: String,
+    age: u32,
+}
+
 
 fn main(){
- let x = 5; // stored on the stack
+ let person = Person {
+    name: "Harry".to_string(),
+    last_name: "Singh".to_string(),
+    age: 23
+ };
 
- let y = Box::new(5); // stored on the heap
+ println!(" {} {} {}", person.name, person.last_name, person.age);
 
- println!("x:{}",x);
- println!("y: {}", *y);
+
    
 }
 
