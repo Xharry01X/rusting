@@ -1,42 +1,18 @@
-// revision of struct
-
-struct Person {
-    name: String,
-    game: String,
-    age: u32
+struct Rectangle {
+    width: u32,
+    height: u32,
 }
 
-impl Person {
-    fn some_function(){
-        println!("some_function");
-    }
-
-      // this is the instance of person
-      // first parameter is always self, which represents the instance of the struct the
-      // method is being called 
-      // withing the impl block, the type Self is an alias for the current type(person)
-    fn display_age(self){
-        println!("Current age is {}",self.age)
+impl Rectangle {
+ // inside impl we just created a associate function new that takes width and height as params and returns an instance of rectangle.
+    fn new(width: u32, height: u32) -> Self {
+        Self { width, height}
     }
 }
+
 
 fn main(){
-   Person::some_function();
-     let person = Person {
-        name: "Harry".to_string(),
-        game:"football".to_string(),
-        age: 19,
-     };
 
-     let person_2 = Person {
-        name: "Carry".to_string(),
-        game: "soccer".to_string(),
-        age: 20
-     };
-
-
-     person.display_age();
-     person_2.display_age();
-
-    //  println!("{} {} {}",person.name, person.game, person.age);
+let rect = Rectangle::new(5, 6);
+println!("{} {}", rect.width, rect.height);
 }
