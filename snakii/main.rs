@@ -12,6 +12,9 @@ impl Person {
     }
 
       // this is the instance of person
+      // first parameter is always self, which represents the instance of the struct the
+      // method is being called 
+      // withing the impl block, the type Self is an alias for the current type(person)
     fn display_age(self){
         println!("Current age is {}",self.age)
     }
