@@ -1,20 +1,26 @@
-struct Rectangle {
-    width: f64,
-    height: f64,
+// constructor with multiple parameter 
+
+struct Book {
+    title: String,
+    author: String,
+    pages: u32
 }
 
-impl Rectangle {
-    fn new() -> Self {
-        Self {
-            width: 1.0,
-            height: 5.0,
-        }
+impl Book {
+
+    fn new(title: &str, author: &str, pages: u32) -> Self {
+    
+     Self {
+        title: title.to_string(),
+        author: author.to_string(),
+        pages,
+     }
     }
 }
-fn main () {
 
-let rect = Rectangle::new();
-println!("{} {}", rect.width, rect.height);
+fn main(){
 
+     let book = Book::new("My home", "Harry", 500);
+
+     println!("{} {} {}",book.title,book.author,book.pages);
 }
-
