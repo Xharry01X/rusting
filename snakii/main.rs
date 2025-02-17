@@ -1,18 +1,21 @@
-struct Rectangle {
-    width: u32,
-    height: u32,
+struct Temperature {
+    degrees_celsius: f64,
 }
 
-impl Rectangle {
- // inside impl we just created a associate function new that takes width and height as params and returns an instance of rectangle.
-    fn new(width: u32, height: u32) -> Self {
-        Self { width, height}
+impl Temperature {
+    // Constructor that ensures the temperature is within a valid range
+    fn new(degrees_celsius: f64) -> Result<Self, String> {
+        if (-273.15..=1_000.0).contains(&degrees_celsius) {
+            Ok(Self { degrees_celsius })
+        } else {
+            Err(String::from("Temperature must be between -273.15 and 1000.0 degrees Celsius."))
+        }
     }
 }
 
-
-fn main(){
-
-let rect = Rectangle::new(5, 6);
-println!("{} {}", rect.width, rect.height);
+fn main() {
+    match Temperature::new(-300.0) {
+        Ok(temp) => println!("Temperature set to {}°C", temp.degrees_celsius),
+        Err(e) => println!("Error: {}", e),
+    }
 }
