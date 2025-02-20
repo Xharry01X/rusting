@@ -1,13 +1,23 @@
 enum Person {
-    Employee { name: String, id: u32},
-    Guest(String),
+    Student(String,i32),
+    Teacher(String),
+}
+
+impl Person {
+    fn describe(&self) -> String {
+        match self {
+            Person::Student(name,grade) => format!("{} is a student in grade {}",name,grade),
+            Person::Teacher(name) => format!("{} is a teacher",name),
+        }
+    }
 }
 
 fn main(){
-    let person = Person::Employee { name: String::from("Harry"), id: 5 };
 
-    match person {
-        Person::Employee { name, id } => println!("The employee name is {} id:{}",name,id),
-        Person::Guest(name) => println!("The guest name is: {}",name)
-    }
+    let student = Person::Student(String::from("Harry"), 10);
+    let teacher = Person::Teacher(String::from("Shukla"));
+
+    println!("{}",student.describe());
+    println!("{}",teacher.describe());
+
 }
