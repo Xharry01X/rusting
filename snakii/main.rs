@@ -1,26 +1,14 @@
-// constructor with multiple parameter 
-
-struct Book {
-    title: String,
-    author: String,
-    pages: u32
+enum PersonRole {
+    Student,
+    Teacher,
+    Parent,
 }
 
-impl Book {
-
-    fn new(title: &str, author: &str, pages: u32) -> Self {
-    
-     Self {
-        title: title.to_string(),
-        author: author.to_string(),
-        pages,
-     }
+fn main() {
+    let role = PersonRole::Student;
+    match role {
+        PersonRole::Student => println!("This person is a student!"),
+        PersonRole::Teacher => println!("This person is a teacher!"),
+        PersonRole::Parent => println!("This person is a parent!"),
     }
-}
-
-fn main(){
-
-     let book = Book::new("My home", "Harry", 500);
-
-     println!("{} {} {}",book.title,book.author,book.pages);
 }
