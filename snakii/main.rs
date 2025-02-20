@@ -1,14 +1,13 @@
 enum Person {
-    Child(String),      // Name of the child
-    Adult(i32),         // Age of the adult
-    Senior,             // No extra data
+    Employee { name: String, id: u32},
+    Guest(String),
 }
 
-fn main() {
-    let person = Person::Adult(66);
+fn main(){
+    let person = Person::Employee { name: String::from("Harry"), id: 5 };
+
     match person {
-        Person::Child(name) => println!("Child named: {}", name),
-        Person::Adult(age) => println!("Adult aged: {}", age),
-        Person::Senior => println!("Senior citizen!"),
+        Person::Employee { name, id } => println!("The employee name is {} id:{}",name,id),
+        Person::Guest(name) => println!("The guest name is: {}",name)
     }
 }
