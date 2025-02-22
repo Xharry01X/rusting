@@ -1,31 +1,39 @@
-trait Speak {
-    fn say_hii(&self);
+trait Noise {
+    fn sound(&self);
 }
 
-struct Person {
+struct Dog {
     name: String,
 }
 
-struct Robot {
-    id: i32
+enum CatMood {
+    Happy,
+    Grumpy,
 }
 
-impl Speak for Person {
-    fn say_hii(&self) {
-        println!("Hello I'm {}",self.name);
+impl Noise for Dog {
+    fn sound(&self) {
+        println!("{} says woof",self.name);
     }
 }
 
-impl Speak for Robot {
-    fn say_hii(&self) {
-        println!("Beep boop, I'm Robot #{}",self.id);
+impl Noise for CatMood {
+    fn sound(&self) {
+        match self {
+            CatMood::Happy => println!("cat is feeling"),
+            CatMood::Grumpy => println!("Cat is feeling grumpy"),
+        }
     }
+}
+
+fn make_it_noisy(thing: &impl Noise){
+    thing.sound();
 }
 
 fn main(){
-    let person = Person { name: String::from("Harry")};
-    let robot = Robot { id: 12 };
+    let dog = Dog { name: String::from("Miki")};
+    let cat = CatMood::Happy;
 
-    person.say_hii();
-    robot.say_hii();
+    make_it_noisy(&dog);
+    make_it_noisy(&cat);
 }
