@@ -1,39 +1,30 @@
-trait Noise {
-    fn sound(&self);
+trait Travel {
+    fn move_it(&self);
 }
 
-struct Dog {
-    name: String,
+enum Vehicle {
+    Car(String),
+    Bike(i32),
+    Boat
 }
 
-enum CatMood {
-    Happy,
-    Grumpy,
-}
-
-impl Noise for Dog {
-    fn sound(&self) {
-        println!("{} says woof",self.name);
-    }
-}
-
-impl Noise for CatMood {
-    fn sound(&self) {
+impl Travel for Vehicle {
+    fn move_it(&self) {
         match self {
-            CatMood::Happy => println!("cat is feeling"),
-            CatMood::Grumpy => println!("Cat is feeling grumpy"),
+            Vehicle::Car(name) => println!("My car name is {}",name),
+            Vehicle::Bike(num) => println!("Car speed is {}",num),
+            Vehicle::Boat => println!("Just use boat anyway")
         }
     }
 }
 
-fn make_it_noisy(thing: &impl Noise){
-    thing.sound();
-}
-
 fn main(){
-    let dog = Dog { name: String::from("Miki")};
-    let cat = CatMood::Happy;
+    let car = Vehicle::Car(String::from("BMW"));
+    let bike = Vehicle::Bike(25);
+    let boat = Vehicle::Boat;
 
-    make_it_noisy(&dog);
-    make_it_noisy(&cat);
+    car.move_it();
+    bike.move_it();
+    boat.move_it();
+
 }
