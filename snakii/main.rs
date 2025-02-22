@@ -1,17 +1,18 @@
-enum Weather {
-    Sunny,
-    Rainy(i32),
-    Cloudy(Empty)
+trait Speak {
+    fn say_hii(&self);
 }
 
-struct Empty;
+struct Person {
+    name: String,
+}
 
-fn main () {
-    let today = Weather::Rainy(15);
-
-    match today {
-        Weather::Sunny => println!("It's sunny"),
-        Weather::Cloudy(Empty) => println!("It is weather shit"),
-        Weather::Rainy(amount) => println!("It is raining {} mm",amount),
+impl Speak for Person {
+    fn say_hii(&self) {
+        println!("Hello I'm {}",self.name);
     }
+}
+
+fn main(){
+    let person = Person { name: String::from("Harry") };
+    person.say_hii();
 }
