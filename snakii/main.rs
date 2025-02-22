@@ -1,15 +1,17 @@
-struct Empty;
-
-enum Action {
-    DoNothing(Empty),
-    DoSomething(i32)
+enum Weather {
+    Sunny,
+    Rainy(i32),
+    Cloudy(Empty)
 }
 
-fn main() {
-    let action = Action::DoNothing(Empty);
+struct Empty;
 
-    match action {
-        Action::DoNothing(_) => println!("Do nothing!"),
-        Action::DoSomething(num) => println!("DoSomething with {}",num),
+fn main () {
+    let today = Weather::Rainy(15);
+
+    match today {
+        Weather::Sunny => println!("It's sunny"),
+        Weather::Cloudy(Empty) => println!("It is weather shit"),
+        Weather::Rainy(amount) => println!("It is raining {} mm",amount),
     }
 }
