@@ -1,17 +1,14 @@
-enum Direction {
-    Up,
-    Down,
-    Left,
-    Right,
+enum Option {
+    Yes(String),
+    No
 }
 
-fn main() {
-    let my_direction = Direction::Down;
+fn main(){
+    let choice = Option::Yes(String::from("Great"));
 
-    match my_direction {
-        Direction::Up => println!("Going up!"),
-        Direction::Down => println!("Going down!"),
-        Direction::Left => println!("Going left!"),
-        Direction::Right => println!("Going right!"),
+    if let Option::Yes(text) = choice {
+        println!("You said: {}",text);
+    }else {
+        println!("You said nothing")
     }
 }
