@@ -1,13 +1,17 @@
-enum Message {
-    Quit,
-    Move(i32,i32),
-    Say(String)
+enum Direction {
+    Up,
+    Down,
+    Left,
+    Right,
 }
 
-fn main(){
-    let message1 = Message::Quit;
-    let msg2 = Message::Move(10, 20);
-    let msg3 = Message::Say(String::from("Hello!"));
+fn main() {
+    let my_direction = Direction::Down;
 
-    println!("Message created");
+    match my_direction {
+        Direction::Up => println!("Going up!"),
+        Direction::Down => println!("Going down!"),
+        Direction::Left => println!("Going left!"),
+        Direction::Right => println!("Going right!"),
+    }
 }
