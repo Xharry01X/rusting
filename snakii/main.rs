@@ -1,14 +1,15 @@
-enum Option {
-    Yes(String),
-    No
+struct Empty;
+
+enum Action {
+    DoNothing(Empty),
+    DoSomething(i32)
 }
 
-fn main(){
-    let choice = Option::Yes(String::from("Great"));
+fn main() {
+    let action = Action::DoNothing(Empty);
 
-    if let Option::Yes(text) = choice {
-        println!("You said: {}",text);
-    }else {
-        println!("You said nothing")
+    match action {
+        Action::DoNothing(_) => println!("Do nothing!"),
+        Action::DoSomething(num) => println!("DoSomething with {}",num),
     }
 }
