@@ -1,21 +1,16 @@
 
-
-#[derive(Clone)]
-
-struct Inventory {
-    items: Vec<String>,
-    count: i32
+#[derive(Clone,Copy)]
+struct Positon {
+    x: i32,
+    y: i32
 }
 
-fn duplicate_inventory<T: Clone>(inv: T) -> (T,T){
-  
-  let inv2 = inv.clone();
-  (inv,inv2)
+fn move_position<T: Copy>(pos: T) -> (T,T) {
+    (pos,pos)
 }
 
 fn main(){
-    let stock = Inventory{ items: vec![String::from("clothes"), String::from("Headphones")],count: 2 };
-
-     let (original, copy) = duplicate_inventory(stock);
-     println!(" original: {} items, Copy: {} items", original.count, copy.count);
+    let start = Positon { x: 5, y: 6};
+    let (pos1,pos2) = move_position(start);
+    println!("Pos1: ({}, {}), Pos2: ({}, {})", pos1.x, pos1.y, pos2.x, pos2.y);
 }
