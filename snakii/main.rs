@@ -1,13 +1,11 @@
-mod outer {
-    pub mod inner {
-         pub fn say_hii(){
-            println!("Hii I'm inner module");
-         }
+mod messages {
+    pub fn greet(){
+        println!("Greetings");
     }
 }
 
+use messages::greet;
 
 fn main(){
-    crate::outer::inner::say_hii(); //absolute path
-    outer::inner::say_hii(); // relative path
+    greet();
 }
