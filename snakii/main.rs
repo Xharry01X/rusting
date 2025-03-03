@@ -1,24 +1,18 @@
-
-#[derive(Clone,Copy)]
-struct Positon {
-    x: i32,
-    y: i32
+#[derive(PartialEq, Debug)]
+struct Student {
+    id: i32,
+    grade: char,
 }
 
-fn move_position<T: Copy>(pos: T) -> (T,T) {
-    (pos,pos)
+fn find_match<T: PartialEq>(a: T, b: T) -> bool {
+    a == b 
 }
 
-fn main(){
-    let start = Positon { x: 5, y: 6};
-    let (pos1,pos2) = move_position(start);
-    println!("Pos1: ({}, {}), Pos2: ({}, {})", pos1.x, pos1.y, pos2.x, pos2.y);
+fn main() {
+    let student1 = Student { id: 101, grade: 'A' };
+    let student2 = Student { id: 101, grade: 'A' };
+
+    let are_same = find_match(student1, student2);
+
+    println!("Are they the same? {}", are_same); 
 }
-
-
-// #[derive(Copy, Clone)]: Copy says this struct is simple (no strings or vectors), so it’s copied instantly.
-
-// T: Copy: Ensures the type can be duplicated without calling clone().
-
-// Both pos1 and pos2 get the same values because Copy just duplicates the data.
-
