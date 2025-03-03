@@ -1,11 +1,5 @@
-mod messages {
-    pub fn greet(){
-        println!("Greetings");
-    }
-}
-
-use messages::greet;
+mod animal;
 
 fn main(){
-    greet();
+    animal::say_meow();
 }
