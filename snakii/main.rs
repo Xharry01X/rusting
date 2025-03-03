@@ -1,24 +1,21 @@
-use std::fmt::Debug;
 
-#[derive(Debug)]
-struct Robot {
-    name: String,
-    power_level: i32,
+
+#[derive(Clone)]
+
+struct Inventory {
+    items: Vec<String>,
+    count: i32
 }
 
-fn inspect_robot<T:Debug>(robot: T){
-    println!("Robot details {:?}", robot);
+fn duplicate_inventory<T: Clone>(inv: T) -> (T,T){
+  
+  let inv2 = inv.clone();
+  (inv,inv2)
 }
 
 fn main(){
-    let robot = Robot { name: String::from("harry"), power_level: 5 };
+    let stock = Inventory{ items: vec![String::from("clothes"), String::from("Headphones")],count: 2 };
 
-    inspect_robot(robot);
+     let (original, copy) = duplicate_inventory(stock);
+     println!(" original: {} items, Copy: {} items", original.count, copy.count);
 }
-
-// #[derive(Debug)]: This auto-adds the Debug trait to Robot so it can be printed.
-
-// T: Debug: This says the function only works with types that have the Debug trait.
-
-// {:?}: This is the special way to print Debug types.
-
