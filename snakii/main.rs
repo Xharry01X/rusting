@@ -1,6 +1,6 @@
-mod greeting {
-    pub fn say_hello() {
-        println!("Hello world");
+pub mod greeting {
+    pub fn say_hello(){
+        println!("Say Hello");
     }
 }
 
