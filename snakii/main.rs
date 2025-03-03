@@ -1,17 +1,17 @@
 use std::fmt::Debug;
 
 #[derive(Debug)]
-struct Point {
-    x:  i32,
-    y: i32,
+struct Robot {
+    name: String,
+    power_level: i32,
 }
 
-fn print_debug<T: Debug>(value: T){
-    println!("{:?}", value);
+fn inspect_robot<T:Debug>(robot: T){
+    println!("Robot details {:?}", robot);
 }
 
 fn main(){
-    let p =Point { x: 4, y:5 };
+    let robot = Robot { name: String::from("harry"), power_level: 5 };
 
-    print_debug(p);
+    inspect_robot(robot);
 }
