@@ -15,3 +15,10 @@ fn main(){
 
     inspect_robot(robot);
 }
+
+// #[derive(Debug)]: This auto-adds the Debug trait to Robot so it can be printed.
+
+// T: Debug: This says the function only works with types that have the Debug trait.
+
+// {:?}: This is the special way to print Debug types.
+
