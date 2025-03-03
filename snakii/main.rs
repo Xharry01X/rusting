@@ -1,13 +1,13 @@
-mod my_module {
-    fn private_function(){
-        println!("This is the private function");
-    }
-    pub fn public_function(){
-        println!("This is the public function");
-        private_function();
+mod outer {
+    pub mod inner {
+         pub fn say_hii(){
+            println!("Hii I'm inner module");
+         }
     }
 }
 
+
 fn main(){
-    my_module::public_function();
+    crate::outer::inner::say_hii(); //absolute path
+    outer::inner::say_hii(); // relative path
 }
