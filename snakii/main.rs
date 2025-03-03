@@ -1,9 +1,13 @@
-pub mod greeting {
-    pub fn say_hello(){
-        println!("Say Hello");
+mod my_module {
+    fn private_function(){
+        println!("This is the private function");
+    }
+    pub fn public_function(){
+        println!("This is the public function");
+        private_function();
     }
 }
 
 fn main(){
-    greeting::say_hello();
+    my_module::public_function();
 }
