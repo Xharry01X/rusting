@@ -1,4 +1,4 @@
-use dioxus::prelude::*;
+use dioxus::{html::g::class, prelude::*};
 
 const FAVICON: Asset = asset!("/assets/favicon.ico");
 const MAIN_CSS: Asset = asset!("/assets/main.css");
@@ -21,17 +21,39 @@ fn App() -> Element {
 
 #[component]
 pub fn Hero() -> Element {
+
+    let mut item: Signal<String> = use_signal(|| { String::new() });
+    let mut items: Signal<Vec<String>> = use_signal(Vec::<String>::new);
     rsx! {
         div {
-            id: "hero",
-            img { src: HEADER_SVG, id: "header" }
-            div { id: "links",
-                a { href: "https://dioxuslabs.com/learn/0.6/", "📚 Learn Dioxus" }
-                a { href: "https://dioxuslabs.com/awesome", "🚀 Awesome Dioxus" }
-                a { href: "https://github.com/dioxus-community/", "📡 Community Libraries" }
-                a { href: "https://github.com/DioxusLabs/sdk", "⚙️ Dioxus Development Kit" }
-                a { href: "https://marketplace.visualstudio.com/items?itemName=DioxusLabs.dioxus", "💫 VSCode Extension" }
-                a { href: "https://discord.gg/XgGxMSkvUM", "👋 Community Discord" }
+            div {
+                class: "header",
+                input {
+                  type: "text",
+                  class: "input",
+                  oninput: move |event| {
+                    item.set(event.value());
+                  },
+                  onkeydown: move |event| {
+                    if event.code().to_string() == "Enter".to_string() {
+                        println!("{:?}", item);
+                        items.write().push(item());
+                    }
+                  }
+                }
+            },
+            div {
+                for i in 1..5 {
+                    div { 
+                        class: "item",
+                        label { { i.to_string() } }
+
+                        button { 
+                            class: "delete-button",
+                            "Delete"
+                         }
+                     }
+                }
             }
         }
     }
