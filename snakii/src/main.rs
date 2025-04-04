@@ -1,15 +1,9 @@
 
 
-use snakii::{add,sub}; //nice way
-
-// if you wanna import all thing from snakki use *
+mod outer_module;
 
 fn main(){
-    let addi = snakii::add(3, 2);
-    let subbi = snakii::sub(5, 2);
-
-    println!("{}",addi);
-    println!("{}",subbi);
+    outer_module::outer_function();
+    outer_module::inner_module::inner_function();
 }
-
 
