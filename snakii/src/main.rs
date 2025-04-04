@@ -1,30 +1,19 @@
-trait Animal {
-    fn speak(&self) -> String {
-        String::from("I make no sound")
+mod subtracted {
+   pub fn minus(a: i32, b: i32) -> i32 {
+        a - b
     }
 
-    fn describe(&self) -> String { 
-        String::from("I am an animal")
-    }
-}
-
-struct Dog;
-struct SilentAnimal;
-
-impl Animal for Dog {
-    fn speak(&self) -> String {
-        String::from("Woof!") 
+   pub fn add(a: i32, b: i32) -> i32 {
+        a + b
     }
 }
 
-impl Animal for SilentAnimal {} 
 
-fn main() {
-    let dog = Dog;
-    let silent = SilentAnimal;
 
-    println!("{}", dog.speak());
-    println!("{}", silent.speak()); 
-    println!("{}", dog.describe()); 
-    println!("{}", silent.describe()); 
+fn main(){
+    let sub = subtracted::minus(3,1);
+    let addition = subtracted::add(4,7);
+
+    println!("{}",sub);
+    println!("{}",addition);
 }
